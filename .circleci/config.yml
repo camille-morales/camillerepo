@@ -36,7 +36,7 @@ jobs:
           name: Run tests
           command: |
             source venv/bin/activate
-            pytest tests/
+            pytest
 
   build-docker-image:
     executor: docker-executor
@@ -75,7 +75,7 @@ jobs:
       - run:
           name: Install SSH key
           command: |
-            echo "$EC2_SSH_KEY" > ~/.ssh/id_rsa
+            echo camillekeypair > ~/.ssh/id_rsa
             chmod 600 ~/.ssh/id_rsa
       - run:
           name: Run Ansible Playbook
